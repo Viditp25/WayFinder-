@@ -49,6 +49,7 @@ export async function generateRoadmap(
     currentClass: string
 ): Promise<CareerRoadmap | null> {
     try {
+        console.log("Checking GEMINI_API_KEY in production. Exists:", !!process.env.GEMINI_API_KEY, "Length:", process.env.GEMINI_API_KEY?.length);
         if (!process.env.GEMINI_API_KEY) {
             console.error("Missing GEMINI_API_KEY. Cannot generate dynamic roadmap.");
             throw new Error("Missing GEMINI API KEY");
