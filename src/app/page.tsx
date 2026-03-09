@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Compass, Target, Rocket } from 'lucide-react';
 import SetupForm from '@/components/setup-form';
-import { AuthModal } from '@/components/auth/AuthModal';
-import { UserAccountNav } from '@/components/auth/UserAccountNav';
 import { createClient } from '@/utils/supabase/server';
 
 export default async function Home() {
