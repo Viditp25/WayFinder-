@@ -6,7 +6,6 @@ import { MapPin } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { createClient } from '@/utils/supabase/server';
-import SaveRoadmapButton from '@/components/save-roadmap-button';
 import { RoadmapActions } from '@/components/roadmap-actions';
 import StudyMaterialsSidebar from '@/components/study-materials-sidebar';
 
@@ -27,20 +26,6 @@ export default async function RoadmapPage({ params }: { params: Promise<{ career
     }
 
     const roadmap: CareerRoadmap = routeData.roadmap_data;
-
-    const { data: { user } } = await supabase.auth.getUser();
-    let isSavedInitial = false;
-
-    if (user) {
-        const { data: profile } = await supabase
-            .from('profiles')
-            .select('saved_roadmaps')
-            .eq('id', user.id)
-            .single();
-
-        const saved = profile?.saved_roadmaps || [];
-        isSavedInitial = saved.some((r: any) => typeof r === 'string' ? r === career : r.slug === career);
-    }
 
     return (
         <div className="min-h-screen bg-background relative overflow-hidden print:overflow-visible print:min-h-0 print:bg-white print:block">
@@ -65,7 +50,6 @@ export default async function RoadmapPage({ params }: { params: Promise<{ career
                             </p>
 
                             <div className="flex flex-wrap items-center gap-4 print:hidden">
-                                <SaveRoadmapButton careerSlug={career} isSavedInitial={isSavedInitial} isLoggedIn={!!user} />
                                 <RoadmapActions />
                             </div>
                         </div>
