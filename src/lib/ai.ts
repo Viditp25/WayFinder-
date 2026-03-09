@@ -80,8 +80,14 @@ STRICT GEOGRAPHIC RULES:
         let jsonString = response.text;
         if (!jsonString) throw new Error("No response from Gemini");
 
-        // Clean out possible markdown code blocks often returned by generic text models
-        jsonString = jsonString.replace(/```json/gi, '').replace(/```/g, '').trim();
+        // Extract the JSON object using regex to ignore any surrounding conversational text
+        const jsonMatch = jsonString.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+            jsonString = jsonMatch[0];
+        } else {
+            // Fallback: Clean out possible markdown code blocks if regex fails
+            jsonString = jsonString.replace(/```json/gi, '').replace(/```/g, '').trim();
+        }
 
         const parsed = JSON.parse(jsonString);
         parsed.userId = "anon"; // Fallback userId
