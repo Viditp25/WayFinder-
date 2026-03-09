@@ -15,3 +15,6 @@ ALTER TABLE public.careers ENABLE ROW LEVEL SECURITY;
 
 -- 3. Create a policy that allows anonymous read access
 CREATE POLICY "Allow public read-only access to careers" ON public.careers FOR SELECT USING (true);
+
+-- 4. Create a policy that allows anonymous insert access (required for generation)
+CREATE POLICY "Allow public insert access to careers" ON public.careers FOR INSERT WITH CHECK (true);
