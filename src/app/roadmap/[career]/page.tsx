@@ -9,7 +9,6 @@ import { createClient } from '@/utils/supabase/server';
 import SaveRoadmapButton from '@/components/save-roadmap-button';
 import { RoadmapActions } from '@/components/roadmap-actions';
 import StudyMaterialsSidebar from '@/components/study-materials-sidebar';
-import PrintOnlyRoadmap from '@/components/print-only-roadmap';
 
 export default async function RoadmapPage({ params }: { params: Promise<{ career: string }> }) {
     const { career } = await params;
