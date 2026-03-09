@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         if (dbError) {
             console.error("Supabase Insertion Error:", dbError);
             return NextResponse.json(
-                { error: "Failed to persist roadmap" },
+                { error: `Failed to persist roadmap: ${dbError.message || JSON.stringify(dbError)}` },
                 { status: 500 }
             );
         }
