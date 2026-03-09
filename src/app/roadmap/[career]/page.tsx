@@ -49,7 +49,7 @@ export default async function RoadmapPage({ params }: { params: Promise<{ career
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-pilot-400/10 dark:bg-pilot-600/20 rounded-full blur-[120px] pointer-events-none print:hidden" />
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-400/10 dark:bg-purple-600/20 rounded-full blur-[120px] pointer-events-none print:hidden" />
 
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10 print:hidden">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10">
                 {/* Header Dashboard */}
                 <header className="mb-16 print:mb-8">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 print:mb-4">
