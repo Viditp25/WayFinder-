@@ -23,12 +23,6 @@ export default async function Home() {
             <span className="text-xl font-bold tracking-tight">WayFinder</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link
-              href="#start"
-              className="px-4 py-2 rounded-full bg-pilot-600 hover:bg-pilot-700 text-white text-sm font-medium transition-colors shadow-lg shadow-pilot-500/20"
-            >
-              Get Started
-            </Link>
           </div>
         </div>
       </nav>
