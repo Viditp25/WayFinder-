@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from "@/components/ui/button";
 import { Compass } from "lucide-react";
 
-export function AuthModal() {
+export function AuthModal({ customTrigger }: { customTrigger?: React.ReactNode }) {
     const [loading, setLoading] = useState(false);
     const supabase = createClient();
 
@@ -30,9 +30,11 @@ export function AuthModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="rounded-full bg-pilot-600 hover:bg-pilot-700 text-white font-medium shadow-lg shadow-pilot-500/20 transition-all border-0">
-                    Log in
-                </Button>
+                {customTrigger ? customTrigger : (
+                    <Button className="rounded-full bg-pilot-600 hover:bg-pilot-700 text-white font-medium shadow-lg shadow-pilot-500/20 transition-all border-0">
+                        Log in
+                    </Button>
+                )}
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] bg-background/80 backdrop-blur-xl border border-white/10 shadow-2xl">
                 <DialogHeader className="flex flex-col items-center justify-center space-y-4 pt-6 pb-2">

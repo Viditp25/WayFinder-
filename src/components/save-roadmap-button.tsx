@@ -14,8 +14,12 @@ export default function SaveRoadmapButton({ careerSlug, isSavedInitial, isLogged
     if (!isLoggedIn) {
         return (
             <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-muted-foreground">Login to Save Progress</span>
-                <AuthModal />
+                <AuthModal customTrigger={
+                    <Button className="gap-2 transition-all shadow-md bg-pilot-600 hover:bg-pilot-700 text-white shadow-pilot-500/20">
+                        <Bookmark className="w-4 h-4" />
+                        ⭐ Save Roadmap
+                    </Button>
+                } />
             </div>
         );
     }

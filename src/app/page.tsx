@@ -20,12 +20,11 @@ export default async function Home() {
       {/* Navigation */}
       <nav className="relative z-10 border-b border-border/40 bg-background/60 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-1 items-center gap-2">
             <Compass className="w-8 h-8 text-pilot-600 dark:text-pilot-400" />
             <span className="text-xl font-bold tracking-tight">WayFinder</span>
           </div>
           <div className="flex items-center gap-4">
-            {user ? <UserAccountNav user={user} /> : <AuthModal />}
             <Link
               href="#start"
               className="px-4 py-2 rounded-full bg-pilot-600 hover:bg-pilot-700 text-white text-sm font-medium transition-colors shadow-lg shadow-pilot-500/20"
